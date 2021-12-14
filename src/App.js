@@ -1,9 +1,11 @@
-import { Button } from "@mui/material";
+import { Divider } from "@mui/material";
+import ItemList from "./components/ItemList";
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <Button variant="contained">Click</Button>
+    <div className="container">
+      <h1>Popular Products</h1>
+      <Divider />
+      <ItemList />
     </div>
   );
 }
