@@ -9,15 +9,67 @@ code {
   font-family: "Lato", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+.timer-form-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+}
+.timer-form-data input {
+  padding: 0.3rem;
+}
+.timer-form-data label {
+  font-size: 1rem;
+}
 .timer-form {
-  background-color: rgb(39, 208, 140);
-  max-width: 30rem;
-  height: 5rem;
+  margin-left: -1.1rem;
 }
 .timer-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
-.timer-item {
-  background-color: skyblue;
+.timer-item,
+.timer-form {
+  background-color: #f6f6f6;
   padding-bottom: 1rem;
+  width: 20rem;
+  height: 10rem;
+  border: 1px solid #b9bfca;
+  padding: 0 1rem 1rem 1rem;
+}
+.timer-heading {
+  text-align: center;
+}
+.ic-project {
+  color: #4f5769;
+  margin-top: -1rem;
+}
+.ic-title {
+  padding-top: -2rem;
+}
+.timer-icons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3.5rem;
+}
+.timer-icons > * {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.add-icon {
+  background-color: #e0e2e7;
+  border-radius: 50%;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+.form-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.form-btn > * {
+  width: 100%;
 }

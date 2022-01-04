@@ -51,27 +51,29 @@ const ItemForm = ({
   return (
     <div className="timer-form">
       <form onSubmit={handleSubmit}>
-        <label>
-          Title
+        <div className="timer-form-data">
+          <label>Title</label>
           <input
             type="text"
             name="title"
             defaultValue={timerTitle}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
-        <label>
-          Project
+          <label>Project</label>
           <input
             type="text"
             name="project"
             defaultValue={timerProject}
             onChange={(e) => setProject(e.target.value)}
           />
-        </label>
-        <div>
-          <Button type="submit">{editable ? "Update" : "Create"}</Button>
-          <Button onClick={handleCancel}>Cancel</Button>
+        </div>
+        <div className="form-btn">
+          <Button type="submit" variant="outlined">
+            {editable ? "Update" : "Create"}
+          </Button>
+          <Button variant="outlined" color="error" onClick={handleCancel}>
+            Cancel
+          </Button>
         </div>
       </form>
     </div>

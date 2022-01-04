@@ -24,8 +24,8 @@ function ItemCard({ title, project, id }) {
     <>
       {!edit ? (
         <div>
-          <h1>{title}</h1>
-          <p>{project}</p>
+          <h2 className="ic-title">{title}</h2>
+          <p className="ic-project">{project}</p>
           <div className="timer-icons">
             <EditIcon onClick={() => handleEdit(id)} />
             <DeleteIcon onClick={() => handleDelete(id)} />
