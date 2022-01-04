@@ -1,14 +1,24 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
-// import { v4 as uid } from "uuid";
+import React, { useContext, useState } from "react";
+import { v4 as uid } from "uuid";
+import { GlobalContext } from "../context/GlobalState";
 
 const ItemForm = () => {
   const [title, setTitle] = useState("");
   const [project, setProject] = useState("");
 
+  const { addTimer } = useContext(GlobalContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title, project);
+    const newTimer = {
+      id: uid(),
+      title,
+      project,
+    };
+
+    addTimer(newTimer);
   };
 
   return (

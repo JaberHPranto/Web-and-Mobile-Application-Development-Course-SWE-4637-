@@ -1,9 +1,12 @@
 import ItemList from "./components/ItemList";
+import { GlobalProvider } from "./context/GlobalState";
 function App() {
   return (
-    <div className="App">
-      <ItemList />
-    </div>
+    <GlobalProvider>
+      <div className="App">
+        <ItemList />
+      </div>
+    </GlobalProvider>
   );
 }
 

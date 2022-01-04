@@ -1,23 +1,14 @@
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import ItemForm from "./ItemForm";
 
 function ItemList() {
   const [addForm, setAddForm] = useState(false);
-  const timers = [
-    {
-      title: "Practice squat",
-      project: "Gym Chores",
-      id: 1,
-    },
-    {
-      title: "Bake squash",
-      project: "Kitchen Chores",
-      id: 2,
-    },
-  ];
+  const { timers } = useContext(GlobalContext);
+  console.log(timers);
 
   const handleAdd = () => {
     setAddForm(!addForm);
