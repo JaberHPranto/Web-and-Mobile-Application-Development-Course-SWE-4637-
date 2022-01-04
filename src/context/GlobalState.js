@@ -17,12 +17,26 @@ export const GlobalProvider = ({ children }) => {
       payload: timer,
     });
   };
+  const deleteTimer = (id) => {
+    dispatch({
+      type: "DELETE_TIMER",
+      payload: id,
+    });
+  };
+  const editTimer = (timer) => {
+    dispatch({
+      type: "EDIT_TIMER",
+      payload: timer,
+    });
+  };
 
   return (
     <GlobalContext.Provider
       value={{
         timers: state.timers,
         addTimer,
+        deleteTimer,
+        editTimer,
       }}
     >
       {children}

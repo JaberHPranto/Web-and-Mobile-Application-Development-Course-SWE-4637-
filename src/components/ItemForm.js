@@ -3,22 +3,49 @@ import React, { useContext, useState } from "react";
 import { v4 as uid } from "uuid";
 import { GlobalContext } from "../context/GlobalState";
 
-const ItemForm = () => {
+const ItemForm = ({
+  timerTitle,
+  timerProject,
+  timerId,
+  editable,
+  toggleEdit,
+  toggleAdd,
+}) => {
   const [title, setTitle] = useState("");
   const [project, setProject] = useState("");
 
-  const { addTimer } = useContext(GlobalContext);
+  const { addTimer, editTimer } = useContext(GlobalContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title, project);
-    const newTimer = {
-      id: uid(),
-      title,
-      project,
-    };
 
-    addTimer(newTimer);
+    if (editable) {
+      const updatedTitle = title !== "" ? title : timerTitle;
+      const updatedProject = project !== "" ? project : timerProject;
+      editTimer({ title: updatedTitle, project: updatedProject, id: timerId });
+      toggleEdit();
+    } else {
+      const newTimer = {
+        id: uid(),
+        title,
+        project,
+      };
+
+      addTimer(newTimer);
+      toggleAdd();
+    }
+
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setTitle("");
+    setProject("");
+  };
+
+  const handleCancel = () => {
+    editable ? toggleEdit() : toggleAdd();
   };
 
   return (
@@ -29,7 +56,7 @@ const ItemForm = () => {
           <input
             type="text"
             name="title"
-            value={title}
+            defaultValue={timerTitle}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
@@ -38,13 +65,13 @@ const ItemForm = () => {
           <input
             type="text"
             name="project"
-            value={project}
+            defaultValue={timerProject}
             onChange={(e) => setProject(e.target.value)}
           />
         </label>
         <div>
-          <Button type="submit">Create</Button>
-          <Button>Cancel</Button>
+          <Button type="submit">{editable ? "Update" : "Create"}</Button>
+          <Button onClick={handleCancel}>Cancel</Button>
         </div>
       </form>
     </div>
