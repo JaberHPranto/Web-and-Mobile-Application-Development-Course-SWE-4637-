@@ -18,7 +18,7 @@ const ItemForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, project);
+    // console.log(title, project);
 
     if (editable) {
       const updatedTitle = title !== "" ? title : timerTitle;

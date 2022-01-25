@@ -36,9 +36,10 @@ code {
   background-color: #f6f6f6;
   padding-bottom: 1rem;
   width: 20rem;
-  height: 10rem;
+  height: 12.5rem;
   border: 1px solid #b9bfca;
   padding: 0 1rem 1rem 1rem;
+  position: relative;
 }
 .timer-heading {
   text-align: center;
@@ -53,7 +54,9 @@ code {
 .timer-icons {
   display: flex;
   justify-content: flex-end;
-  margin-top: 3.5rem;
+  position: absolute;
+  right: 0.6rem;
+  bottom: 4rem;
 }
 .timer-icons > * {
   cursor: pointer;
@@ -72,4 +75,20 @@ code {
 }
 .form-btn > * {
   width: 100%;
+}
+
+.time {
+  display: flex;
+  font-size: 2.5rem;
+  color: #4f5769;
+  font-weight: bold;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.time > * {
+  margin-left: 0.5rem !important;
+}
+.timer_btn {
+  width: 100%;
+  /* margin-top: -2.5rem; */
 }

@@ -3,6 +3,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import ItemForm from "./ItemForm";
+import Timer from "./Timer";
 
 function ItemCard({ title, project, id }) {
   const { deleteTimer } = useContext(GlobalContext);
@@ -26,6 +27,7 @@ function ItemCard({ title, project, id }) {
         <div>
           <h2 className="ic-title">{title}</h2>
           <p className="ic-project">{project}</p>
+          <Timer />
           <div className="timer-icons">
             <EditIcon onClick={() => handleEdit(id)} />
             <DeleteIcon onClick={() => handleDelete(id)} />
